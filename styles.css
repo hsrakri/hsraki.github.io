@@ -155,9 +155,10 @@ section h2 {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 2rem;
 }
 
-.project-card {
+.project {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
@@ -165,65 +166,72 @@ section h2 {
     display: flex;
     flex-direction: column;
     height: 100%;
-    max-width: 450px;
-    margin: 0 auto;
     width: 100%;
+    border: 1px solid rgba(108, 92, 231, 0.1);
 }
 
-.project-card:hover {
+.project:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-content {
-    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.project-description {
+    flex: 1;
 }
 
 .project-description p {
-    font-size: 0.9rem;
     margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .project-description ul {
-    font-size: 0.9rem;
     margin-bottom: 1rem;
     padding-left: 1.2rem;
 }
 
 .project-description li {
     margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 .learning-outcome {
-    font-size: 0.9rem;
+    background: rgba(108, 92, 231, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
     margin: 1rem 0;
-    padding: 0.8rem;
-    background: var(--light-bg);
-    border-radius: 8px;
+    font-size: 1rem;
 }
 
 .project-links {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: auto;
 }
 
 .project-links a {
-    background: var(--gradient-1);
-    color: var(--white);
-    text-decoration: none;
+    flex: 1;
+    text-align: center;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
+    text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    background: var(--gradient-1);
+    color: var(--white);
 }
 
 .project-links a:hover {
@@ -338,7 +346,7 @@ footer {
         gap: 1.5rem;
     }
     
-    .project-card {
+    .project {
         max-width: 100%;
     }
     
