@@ -116,6 +116,9 @@ section h2 i {
     gap: 2rem;
     margin-top: 2rem;
     width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project {
@@ -128,6 +131,14 @@ section h2 i {
     height: 100%;
     width: 100%;
     border: 1px solid rgba(108, 92, 231, 0.1);
+}
+
+.project:nth-child(odd) {
+    background: rgba(255, 99, 71, 0.1);
+}
+
+.project:nth-child(even) {
+    background: rgba(46, 204, 113, 0.1);
 }
 
 .project:hover {
@@ -288,6 +299,7 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .about-section,
