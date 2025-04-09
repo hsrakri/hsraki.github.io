@@ -131,6 +131,8 @@ section h2 i {
     height: 100%;
     width: 100%;
     border: 1px solid rgba(108, 92, 231, 0.1);
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .project:nth-child(odd) {
@@ -287,7 +289,9 @@ footer {
     }
     
     .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+        padding: 0 1rem;
     }
 }
 
