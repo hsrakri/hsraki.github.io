@@ -1,11 +1,14 @@
 /* Global Styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #333;
+    --primary-color: #6c5ce7;
+    --secondary-color: #00b894;
+    --accent-color: #ff7675;
+    --text-color: #2d3436;
     --light-bg: #f5f6fa;
     --white: #ffffff;
+    --gradient-1: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+    --gradient-2: linear-gradient(135deg, #00b894, #00cec9);
+    --gradient-3: linear-gradient(135deg, #ff7675, #fd79a8);
 }
 
 * {
@@ -29,15 +32,18 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--gradient-1);
     color: var(--white);
-    padding: 2rem 0;
+    padding: 3rem 0;
     text-align: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header p {
@@ -49,12 +55,17 @@ header p {
 section {
     padding: 4rem 0;
     animation: fadeIn 0.5s ease-out;
+    background: var(--white);
+    margin: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 section h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary-color);
+    font-size: 2rem;
 }
 
 /* About Section */
@@ -72,11 +83,16 @@ section h2 {
 }
 
 .skill-tag {
-    background: var(--secondary-color);
+    background: var(--gradient-2);
     color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
 }
 
 /* Projects Section */
@@ -88,14 +104,16 @@ section h2 {
 
 .project {
     background: var(--white);
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    border: 1px solid rgba(108, 92, 231, 0.1);
 }
 
 .project:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.2);
 }
 
 .project-content {
@@ -114,16 +132,27 @@ section h2 {
 }
 
 .project-links a {
-    color: var(--secondary-color);
+    background: var(--gradient-1);
+    color: var(--white);
     text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .project-links a:hover {
-    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
 }
 
 /* Contact Section */
+.contact-section {
+    background: var(--gradient-3);
+    color: var(--white);
+    border-radius: 15px;
+}
+
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -136,16 +165,18 @@ section h2 {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    color: var(--white);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
     font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
 }
 
 .form-group textarea {
@@ -154,24 +185,45 @@ section h2 {
 }
 
 button {
-    background: var(--secondary-color);
-    color: var(--white);
+    background: var(--white);
+    color: var(--accent-color);
     padding: 1rem 2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-color);
+    margin-top: 3rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
     }
 
     header h1 {
