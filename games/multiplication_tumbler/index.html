@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Tumbler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Multiplication Tumbler</h1>
+            <div class="stats">
+                <span id="score">Score: 0</span>
+                <span id="timer">Time: 60</span>
+                <span id="streak">Streak: 0</span>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div id="problem" class="problem">
+                <span id="factor1">?</span> × <span id="factor2">?</span> = <span id="product">?</span>
+            </div>
+            
+            <div class="input-area">
+                <input type="number" id="answer" placeholder="Enter missing number" autofocus>
+                <button id="submit">Submit</button>
+            </div>
+            
+            <div id="message" class="message"></div>
+        </div>
+
+        <div id="startScreen" class="overlay">
+            <div class="start-content">
+                <h1>Multiplication Tumbler</h1>
+                <p>Race against time to solve multiplication problems!</p>
+                <button id="startButton">Start Game</button>
+                <div class="instructions">
+                    <h2>How to Play:</h2>
+                    <ul>
+                        <li>You have 60 seconds</li>
+                        <li>Find the missing factor</li>
+                        <li>Type your answer and press Enter or click Submit</li>
+                        <li>Build streaks for bonus points</li>
+                        <li>Wrong answers lose points</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOverScreen" class="overlay hidden">
+            <div class="game-over-content">
+                <h1>Game Over!</h1>
+                <div id="finalScore"></div>
+                <div id="finalStreak"></div>
+                <button id="restartButton">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
