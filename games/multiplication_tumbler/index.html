@@ -5,56 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplication Tumbler</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="game-container">
-        <div class="header">
-            <h1>Multiplication Tumbler</h1>
+        <header>
+            <h1><i class="fas fa-calculator"></i> Multiplication Tumbler</h1>
             <div class="stats">
-                <span id="score">Score: 0</span>
-                <span id="timer">Time: 60</span>
-                <span id="streak">Streak: 0</span>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span id="score">0</span>
+                    <label>Score</label>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">60</span>
+                    <label>Seconds</label>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-bolt"></i>
+                    <span id="streak">0</span>
+                    <label>Streak</label>
+                </div>
             </div>
-        </div>
-        
-        <div class="game-area">
-            <div id="problem" class="problem">
-                <span id="factor1">?</span> × <span id="factor2">?</span> = <span id="product">?</span>
+        </header>
+
+        <main class="game-area">
+            <div class="problem-container">
+                <div class="problem">
+                    <span id="factor1">?</span>
+                    <span class="operator">×</span>
+                    <span id="factor2">?</span>
+                    <span class="operator">=</span>
+                    <span id="product">?</span>
+                </div>
+                <div class="input-area">
+                    <input type="number" id="answer" placeholder="Enter the missing number" min="1" max="144">
+                    <button id="submit" class="btn-primary">
+                        <i class="fas fa-check"></i> Submit
+                    </button>
+                </div>
+                <div id="message" class="message"></div>
             </div>
-            
-            <div class="input-area">
-                <input type="number" id="answer" placeholder="Enter missing number" autofocus>
-                <button id="submit">Submit</button>
-            </div>
-            
-            <div id="message" class="message"></div>
-        </div>
+        </main>
 
         <div id="startScreen" class="overlay">
-            <div class="start-content">
-                <h1>Multiplication Tumbler</h1>
-                <p>Race against time to solve multiplication problems!</p>
-                <button id="startButton">Start Game</button>
+            <div class="modal">
+                <h2>Welcome to Multiplication Tumbler!</h2>
+                <p>Test your multiplication skills in this fast-paced math challenge.</p>
+                
                 <div class="instructions">
-                    <h2>How to Play:</h2>
+                    <h3><i class="fas fa-info-circle"></i> How to Play</h3>
                     <ul>
-                        <li>You have 60 seconds</li>
-                        <li>Find the missing factor</li>
-                        <li>Type your answer and press Enter or click Submit</li>
-                        <li>Build streaks for bonus points</li>
-                        <li>Wrong answers lose points</li>
+                        <li><i class="fas fa-clock"></i> You have 60 seconds</li>
+                        <li><i class="fas fa-question"></i> Find the missing factor</li>
+                        <li><i class="fas fa-keyboard"></i> Type your answer and press Enter</li>
+                        <li><i class="fas fa-bolt"></i> Build streaks for bonus points</li>
+                        <li><i class="fas fa-exclamation"></i> Wrong answers lose points</li>
                     </ul>
                 </div>
+
+                <button id="startButton" class="btn-primary">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
             </div>
         </div>
 
         <div id="gameOverScreen" class="overlay hidden">
-            <div class="game-over-content">
-                <h1>Game Over!</h1>
-                <div id="finalScore"></div>
-                <div id="finalStreak"></div>
-                <button id="restartButton">Play Again</button>
+            <div class="modal">
+                <h2>Game Over!</h2>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <i class="fas fa-star"></i>
+                        <span id="finalScore">0</span>
+                        <label>Final Score</label>
+                    </div>
+                    <div class="final-stat">
+                        <i class="fas fa-bolt"></i>
+                        <span id="bestStreak">0</span>
+                        <label>Best Streak</label>
+                    </div>
+                </div>
+                <button id="restartButton" class="btn-primary">
+                    <i class="fas fa-redo"></i> Play Again
+                </button>
             </div>
         </div>
     </div>
