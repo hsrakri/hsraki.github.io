@@ -205,11 +205,19 @@ section h2 i {
     transition: all 0.3s ease;
     background: var(--gradient-1);
     color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .project-links a:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.project-links a i {
+    font-size: 1.1em;
 }
 
 /* Contact Section */
@@ -407,54 +415,4 @@ footer {
     margin-bottom: 2rem;
     color: var(--primary-color);
     font-size: 2rem;
-}
-
-.game-preview {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #2a2a2a;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.preview-image {
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.game-thumbnail {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.game-thumbnail:hover {
-    transform: scale(1.02);
-}
-
-.game-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.play-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-}
-
-.play-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.play-btn i {
-    margin-right: 8px;
 } 
