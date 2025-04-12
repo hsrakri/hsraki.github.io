@@ -279,6 +279,11 @@ header h1 {
     color: white;
 }
 
+.btn-play {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: white;
+}
+
 .btn-email {
     background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
     color: white;
