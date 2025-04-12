@@ -10,27 +10,40 @@
     --text: #1e293b;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     background-color: var(--background);
     color: var(--text);
     background-image: linear-gradient(120deg, #f0f7ff 0%, #f8f9fa 100%);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
+    width: 92%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 1rem;
 }
 
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 40px 0;
+    margin-bottom: 2.5rem;
+    padding: 2.5rem 1rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
     border-radius: 0 0 30px 30px;
@@ -38,39 +51,46 @@ header {
 }
 
 header h1 {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     color: white;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-header p {
+.header-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     opacity: 0.9;
 }
 
 /* About section */
 .about-section {
     background: var(--card-bg);
-    padding: 30px;
+    padding: 1.875rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.about-text p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
 }
 
 .skill-tag {
     background: linear-gradient(135deg, var(--info) 0%, var(--primary) 100%);
     color: white;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    white-space: nowrap;
 }
 
 .skill-tag:hover {
@@ -81,18 +101,26 @@ header p {
 .projects-title {
     text-align: center;
     color: var(--primary);
-    margin-bottom: 30px;
-    font-size: 2.2em;
+    margin-bottom: 1.875rem;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.projects-wrapper {
+    display: grid;
+    gap: 1.875rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
 }
 
 .project {
     background: var(--card-bg);
-    padding: 30px;
+    padding: 1.875rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
     border: 1px solid rgba(79, 70, 229, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project:hover {
@@ -106,10 +134,15 @@ header p {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
 .project h2 i {
     color: var(--accent);
+}
+
+.project-description {
+    flex-grow: 1;
 }
 
 .project-description ul {
@@ -142,27 +175,35 @@ header p {
 /* Buttons */
 .project-links {
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 0.938rem;
+    margin-top: 1.25rem;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
-.btn:first-child {
+.btn-active {
+    transform: scale(0.98);
+}
+
+.btn-github {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
 }
 
-.btn:last-child {
+.btn-email {
     background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
     color: white;
 }
@@ -175,10 +216,10 @@ header p {
 /* Contact section */
 .contact-section {
     background: var(--card-bg);
-    padding: 40px;
+    padding: 2.5rem 1.875rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 40px 0;
+    margin: 2.5rem 0;
     text-align: center;
     background-image: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
     border: 1px solid rgba(79, 70, 229, 0.1);
@@ -187,6 +228,7 @@ header p {
 .contact-section h2 {
     color: var(--primary);
     margin-bottom: 20px;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
 .contact-links {
@@ -199,10 +241,10 @@ header p {
 /* Footer */
 footer {
     text-align: center;
-    padding: 30px 0;
+    padding: 1.875rem 1rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
-    margin-top: 60px;
+    margin-top: 3.75rem;
 }
 
 .social-links {
@@ -220,14 +262,23 @@ footer {
     opacity: 1;
 }
 
-/* Responsive design */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        width: 100%;
+        padding: 0 1rem;
     }
     
-    .project {
-        padding: 20px;
+    header {
+        border-radius: 0 0 20px 20px;
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-section,
+    .project,
+    .contact-section {
+        padding: 1.5rem;
     }
     
     .project-links {
@@ -236,11 +287,32 @@ footer {
     
     .btn {
         width: 100%;
-        justify-content: center;
     }
     
-    header {
-        border-radius: 0 0 20px 20px;
-        padding: 30px 0;
+    .skills {
+        justify-content: center;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .project:hover {
+        transform: none;
+    }
+    
+    .skill-tag:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 } 

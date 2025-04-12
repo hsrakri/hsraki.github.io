@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Educational Game Projects | Interactive Learning</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +15,7 @@
     <div class="container">
         <header>
             <h1><i class="fas fa-gamepad"></i> Educational Game Projects</h1>
-            <p>Making learning fun and interactive through technology</p>
+            <p class="header-subtitle">Making learning fun and interactive through technology</p>
         </header>
 
         <section class="about-section">
@@ -20,13 +23,12 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Welcome to my educational game collection! I'm a passionate software developer who believes that learning should be an adventure, not a chore. My mission is to create engaging educational experiences that make complex concepts accessible and enjoyable.</p>
-                  
                     <div class="skills">
                         <span class="skill-tag"><i class="fas fa-code"></i> Go</span>
-                        <span class="skill-tag"><i class="fas fa-gamepad"></i> Game Development</span>
-                        <span class="skill-tag"><i class="fas fa-laptop-code"></i> Educational Software</span>
-                        <span class="skill-tag"><i class="fas fa-chalkboard-teacher"></i> Interactive Learning</span>
-                        <span class="skill-tag"><i class="fas fa-square-root-alt"></i> Mathematics Education</span>
+                        <span class="skill-tag"><i class="fas fa-gamepad"></i> Game Dev</span>
+                        <span class="skill-tag"><i class="fas fa-laptop-code"></i> Ed Tech</span>
+                        <span class="skill-tag"><i class="fas fa-chalkboard-teacher"></i> Learning</span>
+                        <span class="skill-tag"><i class="fas fa-square-root-alt"></i> Math</span>
                     </div>
                 </div>
             </div>
@@ -35,21 +37,20 @@
         <section class="intro-section">
             <h2><i class="fas fa-lightbulb"></i> Why Educational Games?</h2>
             <div class="intro-content">
-                <p>Educational games combine the best of both worlds: the engagement of gaming with the learning outcomes of education. Research shows that interactive learning experiences lead to:</p>
-                <ul>
-                    <li><strong>Increased Engagement:</strong> Games capture attention and maintain interest longer than traditional methods</li>
-                    <li><strong>Active Learning:</strong> Players learn by doing, making connections through experience</li>
-                    <li><strong>Immediate Feedback:</strong> Games provide instant responses, helping learners understand their progress</li>
-                    <li><strong>Reduced Anxiety:</strong> The playful environment reduces the fear of making mistakes</li>
-                    <li><strong>Personalized Pace:</strong> Learners can progress at their own speed</li>
+                <p>Educational games combine the best of both worlds: the engagement of gaming with the power of learning. Key benefits include:</p>
+                <ul class="benefits-list">
+                    <li><strong>Increased Engagement:</strong> Games capture attention and maintain interest</li>
+                    <li><strong>Active Learning:</strong> Learn by doing and experiencing</li>
+                    <li><strong>Instant Feedback:</strong> See progress in real-time</li>
+                    <li><strong>Reduced Anxiety:</strong> Learn without fear of mistakes</li>
+                    <li><strong>Self-Paced:</strong> Progress at your own speed</li>
                 </ul>
-                <p>Each game in this collection is designed with these principles in mind, creating an environment where learning feels like play!</p>
             </div>
         </section>
 
         <main>
             <h2 class="projects-title"><i class="fas fa-project-diagram"></i> Featured Projects</h2>
-            <div class="project-grid">
+            <div class="projects-wrapper">
                 <section class="project">
                     <h2><i class="fas fa-maze"></i> Equation Explorer</h2>
                     <div class="project-content">
@@ -187,21 +188,49 @@
         <section class="contact-section">
             <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
             <div class="contact-content">
-                <p>Have questions, suggestions, or want to collaborate? I'd love to hear from you!</p>
-                <p>These projects are open source and available for educational use. If you're an educator interested in incorporating these tools into your classroom, I'm happy to provide guidance and support.</p>
+                <p>Have questions or want to collaborate? I'd love to hear from you!</p>
+                <p>These projects are open source and available for educational use.</p>
                 <div class="contact-links">
-                    <a href="https://github.com/hsrakri" class="btn"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="mailto:contact@example.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://github.com/hsrakri" class="btn btn-github"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="mailto:contact@example.com" class="btn btn-email"><i class="fas fa-envelope"></i> Email</a>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2024 Educational Game Projects. All rights reserved.</p>
+            <p>&copy; 2024 Educational Game Projects</p>
             <div class="social-links">
-                <a href="https://github.com/hsrakri" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://github.com/hsrakri" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </footer>
     </div>
+
+    <script>
+        // Add touch support for mobile devices
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active state to buttons on touch
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.classList.add('btn-active');
+                });
+                button.addEventListener('touchend', function() {
+                    this.classList.remove('btn-active');
+                });
+            });
+
+            // Improve scroll performance
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        // Add scroll-based effects here if needed
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
