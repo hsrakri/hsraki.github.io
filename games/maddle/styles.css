@@ -1,0 +1,247 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --correct-color: #2ecc71;
+    --wrong-position-color: #f1c40f;
+    --incorrect-color: #95a5a6;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --cell-size: 60px;
+    --keyboard-key-size: 45px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.equation-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: var(--primary-color);
+}
+
+.message {
+    min-height: 30px;
+    margin: 10px 0;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.guess-grid {
+    display: grid;
+    grid-template-rows: repeat(6, var(--cell-size));
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.guess-row {
+    display: grid;
+    grid-template-columns: repeat(4, var(--cell-size));
+    gap: 5px;
+}
+
+.guess-cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.guess-cell.filled {
+    border-color: var(--secondary-color);
+}
+
+.guess-cell.correct {
+    background-color: var(--correct-color);
+    border-color: var(--correct-color);
+    color: white;
+}
+
+.guess-cell.wrong-position {
+    background-color: var(--wrong-position-color);
+    border-color: var(--wrong-position-color);
+    color: white;
+}
+
+.guess-cell.incorrect {
+    background-color: var(--incorrect-color);
+    border-color: var(--incorrect-color);
+    color: white;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    gap: 8px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.key {
+    width: var(--keyboard-key-size);
+    height: var(--keyboard-key-size);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.key:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+.submit-key {
+    width: calc(var(--keyboard-key-size) * 2);
+    background-color: var(--secondary-color);
+}
+
+.backspace-key {
+    width: calc(var(--keyboard-key-size) * 1.5);
+    background-color: var(--incorrect-color);
+}
+
+.stats {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 5px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+.bounce {
+    animation: bounce 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    :root {
+        --cell-size: 50px;
+        --keyboard-key-size: 35px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .equation-display {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
